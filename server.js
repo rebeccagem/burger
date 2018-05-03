@@ -1,12 +1,12 @@
 
 var express = require("express");
 var bodyParser = require("body-parser");
-var orm = require("./config/orm.js");
-var app = express();
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8080;
+
+var app = express();
 
 app.use(express.static("public"));
 // Sets up the Express app to handle data parsing
@@ -19,18 +19,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller.js");
 
-// Use Handlebars to render the main index.html page with the burgers in it.
-app.get("/", function(req, res) {
-  orm.selectAll("burgers", function(err, data) {
-    if (err) {
-      return res.status(500).end();
-    }
-
-    res.render("index", { burgers: data });
-  });
-});
-
+app.use(routes);
 
   // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
