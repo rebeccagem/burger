@@ -8,6 +8,7 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
+//for css and images
 app.use(express.static("public"));
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));

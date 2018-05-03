@@ -1,6 +1,6 @@
 <li class="list-group-item">
 	{{name}}
-	<button class="change-devoured btn btn-primary btn-sm" data-id="{{id}}" data-neweaten="{{devoured}}">
-		{{#if devoured}}EAT!{{else}}UNEAT!{{/if}}
-	</button>
+		{{#if devoured}}<button class="change-devoured btn btn-primary btn-sm" data-id="{{id}}" data-neweaten="{{devoured}}">EAT &nbsp<i class="fas fa-utensils"></i></button>
+		{{else}}<button class="change-devoured btn btn-danger btn-sm" data-id="{{id}}" data-neweaten="{{devoured}}">UNEAT &nbsp <img class="puke" src="./assets/img/puke-icon-WHT-30x32.png"/></button>{{/if}}
+	
 </li>

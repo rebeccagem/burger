@@ -12,4 +12,11 @@
   .form-group {
     margin-bottom: 5px;
   }
+
+  .puke{
+    max-width:20px;
+  }
   
+  body{
+    background-image: url(../img/burger.png);
+  }
